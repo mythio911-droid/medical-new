@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/sidebar";
 import {
   CalendarDays, MessageSquare, Video, Pill, FlaskConical, LayoutDashboard,
-  Users, Package, Activity, Stethoscope, Store, User,
+  Users, Package, Activity, Stethoscope, Store, User, FileUp,
 } from "lucide-react";
 import { useLocation } from "react-router-dom";
 
@@ -18,6 +18,7 @@ const patientLinks = [
   { title: "Video Consult", url: "/video", icon: Video },
   { title: "Medicines", url: "/medicines", icon: Pill },
   { title: "Lab Tests", url: "/lab-tests", icon: FlaskConical },
+  { title: "Upload Report", url: "/upload-report", icon: FileUp },
 ];
 
 const doctorLinks = [
@@ -97,9 +98,8 @@ export function AppSidebar() {
               <button
                 key={r}
                 onClick={() => setRole(r)}
-                className={`w-full text-left px-3 py-1.5 rounded-md text-sm capitalize transition-colors ${
-                  role === r ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium" : "text-sidebar-foreground/70 hover:bg-sidebar-accent/50"
-                }`}
+                className={`w-full text-left px-3 py-1.5 rounded-md text-sm capitalize transition-colors ${role === r ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium" : "text-sidebar-foreground/70 hover:bg-sidebar-accent/50"
+                  }`}
               >
                 {r}
               </button>

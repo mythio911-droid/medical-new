@@ -11,6 +11,7 @@ import DoctorList from "@/pages/patient/DoctorList";
 import PatientAppointments from "@/pages/patient/PatientAppointments";
 import MedicineOrder from "@/pages/patient/MedicineOrder";
 import LabTestBooking from "@/pages/patient/LabTestBooking";
+import UploadReport from "@/pages/patient/UploadReport";
 import ChatPage from "@/pages/shared/ChatPage";
 import VideoCallPage from "@/pages/shared/VideoCallPage";
 
@@ -39,6 +40,7 @@ function AppRoutes() {
         <Route path="/video" element={<VideoCallPage role="patient" />} />
         <Route path="/medicines" element={<MedicineOrder />} />
         <Route path="/lab-tests" element={<LabTestBooking />} />
+        <Route path="/upload-report" element={<UploadReport />} />
 
         {/* Doctor routes */}
         <Route path="/doctor" element={<DoctorDashboard />} />

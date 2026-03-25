@@ -12,6 +12,7 @@ export interface Doctor {
 
 export interface Appointment {
   id: string;
+  patientId: string;
   patientName: string;
   patientAge: number;
   doctorId: string;
@@ -65,10 +66,10 @@ export const doctors: Doctor[] = [
 ];
 
 export const appointments: Appointment[] = [
-  { id: "a1", patientName: "John Doe", patientAge: 34, doctorId: "d1", doctorName: "Dr. Sarah Johnson", date: "2026-03-24", time: "10:00 AM", type: "video", status: "pending", symptoms: "Chest pain, shortness of breath" },
-  { id: "a2", patientName: "Jane Smith", patientAge: 28, doctorId: "d3", doctorName: "Dr. Emily Williams", date: "2026-03-24", time: "11:30 AM", type: "in-person", status: "confirmed", symptoms: "Fever and cold" },
-  { id: "a3", patientName: "Mike Wilson", patientAge: 45, doctorId: "d1", doctorName: "Dr. Sarah Johnson", date: "2026-03-25", time: "2:00 PM", type: "video", status: "pending", symptoms: "Heart palpitations" },
-  { id: "a4", patientName: "Lisa Chang", patientAge: 31, doctorId: "d5", doctorName: "Dr. Aisha Patel", date: "2026-03-25", time: "3:30 PM", type: "in-person", status: "completed", symptoms: "Migraine headaches" },
+  { id: "a1", patientId: "p1", patientName: "John Doe", patientAge: 34, doctorId: "d1", doctorName: "Dr. Sarah Johnson", date: "2026-03-24", time: "10:00 AM", type: "video", status: "pending", symptoms: "Chest pain, shortness of breath" },
+  { id: "a2", patientId: "p2", patientName: "Jane Smith", patientAge: 28, doctorId: "d3", doctorName: "Dr. Emily Williams", date: "2026-03-24", time: "11:30 AM", type: "in-person", status: "confirmed", symptoms: "Fever and cold" },
+  { id: "a3", patientId: "p1", patientName: "John Doe", patientAge: 34, doctorId: "d1", doctorName: "Dr. Sarah Johnson", date: "2026-03-25", time: "2:00 PM", type: "video", status: "pending", symptoms: "Heart palpitations" },
+  { id: "a4", patientId: "p3", patientName: "Lisa Chang", patientAge: 31, doctorId: "d5", doctorName: "Dr. Aisha Patel", date: "2026-03-25", time: "3:30 PM", type: "in-person", status: "completed", symptoms: "Migraine headaches" },
 ];
 
 export const chatMessages: ChatMessage[] = [
@@ -102,4 +103,49 @@ export const orders: Order[] = [
   { id: "o2", type: "lab-test", patientName: "Jane Smith", items: ["Complete Blood Count", "Lipid Profile"], total: 850, status: "processing", date: "2026-03-22" },
   { id: "o3", type: "medicine", patientName: "Mike Wilson", items: ["Amoxicillin 250mg x15", "Cetirizine 10mg x10"], total: 230, status: "dispatched", date: "2026-03-21" },
   { id: "o4", type: "lab-test", patientName: "Lisa Chang", items: ["Thyroid Function Test"], total: 600, status: "received", date: "2026-03-23" },
+];
+
+export interface Report {
+  id: string;
+  patientId: string;
+  patientName: string;
+  title: string;
+  description: string;
+  date: string;
+  fileType: "pdf" | "image";
+  fileUrl: string;
+  doctorNotes?: string;
+}
+
+export const reports: Report[] = [
+  {
+    id: "r1",
+    patientId: "p1",
+    patientName: "John Doe",
+    title: "Blood Test Results",
+    description: "Annual physical blood work results including cholesterol and glucose levels.",
+    date: "2026-03-20",
+    fileType: "pdf",
+    fileUrl: "https://pdfobject.com/pdf/sample.pdf"
+  },
+  {
+    id: "r2",
+    patientId: "p1",
+    patientName: "John Doe",
+    title: "Chest X-Ray",
+    description: "Follow-up X-ray for seasonal cough.",
+    date: "2026-03-15",
+    fileType: "image",
+    fileUrl: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&auto=format&fit=crop&q=60"
+  },
+  {
+    id: "r3",
+    patientId: "p2",
+    patientName: "Jane Smith",
+    title: "Allergy Test",
+    description: "Comprehensive allergy screening for seasonal allergens.",
+    date: "2026-03-10",
+    fileType: "pdf",
+    fileUrl: "https://pdfobject.com/pdf/sample.pdf"
+  }
 ];
